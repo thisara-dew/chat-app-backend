@@ -3,7 +3,7 @@
 const required = require("esm")(module/* , options */)
 const app = required("./main.js")
 const socketIo = require('socket.io');
-const port = 3000;
+const port = normalizePort(process.env.PORT || '3000');
 
 const server = app.listen(port, () => {
     const { name: appName, version: appVersion } = require('./package.json');
