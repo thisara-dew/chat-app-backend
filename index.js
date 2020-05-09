@@ -10,6 +10,23 @@ const server = app.listen(port, () => {
     console.log({ appName, appVersion, port }); 
 });
 
+
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+  
+    return false;
+  }
+
 const io = socketIo(server);
 
 io.on('connection', socket => {
